@@ -829,23 +829,28 @@
         @media (max-width: 1024px) {
             .hero-grid {
                 flex-direction: column;
-                text-align: center;
-                gap: 60px;
+                text-align: left;
+                gap: 40px;
+                padding: 0 24px;
             }
             .hero-left h1 {
                 font-size: 3.5rem;
             }
             .hero-actions {
-                justify-content: center !important;
+                justify-content: flex-start !important;
             }
             .hero-subtitle {
-                margin: 0 auto;
-                text-align: center;
+                margin: 0;
+                text-align: left;
             }
 
-            .hero-image-inner {
-                max-width: 500px;
-                margin: 0 auto;
+            .hero-left, .hero-right {
+                flex: none;
+                max-width: 100%;
+            }
+
+            .hero-right {
+                margin-top: 0;
             }
 
             .about-grid {
@@ -860,15 +865,35 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                /* simple mobile nav */
             }
 
-            .hero-content h1 {
-                font-size: 2.8rem;
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero-left h1 {
+                font-size: 34px !important;
+                line-height: 1.25;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+
+            .hero-grid {
+                gap: 24px;
+            }
+
+            .hero-right {
+                gap: 20px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                line-height: 1.6;
             }
 
             .hero-actions {
-                flex-direction: column;
+                margin-top: 8px;
             }
 
             .stats-row {
@@ -902,7 +927,7 @@
                 <li><a href="#foredrag">Foredrag</a></li>
                 <li><a href="#omtaler">Omtaler</a></li>
             </ul>
-            <a href="mailto:Ranvir.Rai@gmail.com" class="btn btn-primary nav-cta">Forespørsel</a>
+            <a href="mailto:ranvir.rai@gmail.com" class="btn btn-primary nav-cta">Forespørsel</a>
         </div>
     </header>
 
@@ -917,7 +942,7 @@
                         <p class="hero-subtitle">Ranvir Rai, PhD – inspirerende og engasjerende foredragsholder<br/>som gjør det komplekse enkelt.</p>
                         <p class="hero-subtitle" style="margin-top: 16px; opacity: 0.9; font-weight: 400; font-size: 1.1rem;">Foredrag og workshops som gir klarhet<br/>og retning i krevende endringer.</p>
                         <div class="hero-actions delay-2" style="justify-content: flex-start;">
-                            <a href="mailto:Ranvir.Rai@gmail.com" class="btn btn-primary">
+                            <a href="mailto:ranvir.rai@gmail.com" class="btn btn-primary">
                                 Send forespørsel <i data-lucide="arrow-right"></i>
                             </a>
                         </div>
@@ -1304,7 +1329,7 @@
                     <h2>Klar for å løfte neste arrangement?</h2>
                     <p>Ta kontakt for å diskutere hvordan vi kan tilpasse innholdet for din organisasjon.</p>
                     <div style="display:flex; justify-content:flex-start; gap:16px; flex-wrap:wrap;">
-                        <a href="mailto:Ranvir.Rai@gmail.com" class="btn btn-primary"
+                        <a href="mailto:ranvir.rai@gmail.com" class="btn btn-primary"
                             style="padding: 16px 40px; font-size: 1.1rem; border: none; background: #FFFFFF; color: #111827;">
                             <i data-lucide="mail"></i> Send forespørsel
                         </a>
