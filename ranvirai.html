@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranvir Rai | Ekspert innen innovasjon og AI</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            /* Color Palette - Clean Professional */
+            --bg-base: #FFFFFF;
+            --bg-surface: #F9FAFB;
+            --bg-surface-elevated: #FFFFFF;
+
+            --text-primary: #111827;
+            --text-secondary: #4B5563;
+            --text-tertiary: #6B7280;
+
+            --accent-glow: rgba(0, 0, 0, 0.03);
+            --accent-solid: #111827;
+            --accent-hover: #000000;
+
+            --border-subtle: #E5E7EB;
+
+            /* Typography */
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Spacing & Radii */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Clean background */
+        }
+
+        /* Card and Box helpers */
+        .glass {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.025);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-base);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-solid);
+            color: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(15, 23, 42, 0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(15, 23, 42, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-up {
+            opacity: 0;
+            animation: fadeUp 0.8s forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .section-fade {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 6px 0;
+            background: #FFFFFF;
+            border-bottom: none;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            padding: 140px 0 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, rgba(17, 24, 39, 0.55), rgba(17, 24, 39, 0.50)), url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center 15%;
+            background-attachment: fixed;
+            margin: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .hero-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: min(1400px, 100%);
+            margin: 0 auto;
+            padding: 0 24px;
+            gap: 150px;
+            text-align: left;
+        }
+
+        .hero-left {
+            flex: 0 0 520px;
+            max-width: 520px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 0px;
+        }
+
+        .hero-right {
+            flex: 0 0 440px;
+            max-width: 440px;
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 15px;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+            line-height: 1.5;
+        }
+
+        .hero-left h1 {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .hero-cta-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .stats-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+
+        .stars {
+            display: flex;
+            color: #F59E0B;
+        }
+
+        .stars i {
+            width: 18px;
+            height: 18px;
+        }
+
+        .rating-text {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #FFFFFF;
+        }
+
+        .rating-reviews {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+
+        .price-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-full);
+            backdrop-filter: blur(8px);
+        }
+
+        .price-val {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .price-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 250px;
+            line-height: 1.3;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image-inner {
+            position: relative;
+            z-index: 2;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 4/5;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero-image-bg {
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            background: linear-gradient(135deg, var(--accent-solid), #8b5cf6);
+            filter: blur(60px);
+            opacity: 0.3;
+            z-index: 1;
+            border-radius: 50%;
+        }
+
+        /* Keywords Marquee */
+        .keywords-wrapper {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            background: rgba(255, 255, 255, 0.6);
+            overflow: hidden;
+            display: flex;
+        }
+
+        .keywords-track {
+            display: flex;
+            gap: 40px;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+        }
+
+        .keyword {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .keyword::after {
+            content: "•";
+            color: var(--accent-solid);
+            margin-left: 40px;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Section Titles */
+        .section-header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 120px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            object-fit: cover;
+        }
+
+        .about-text-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .about-content {
+            padding: 40px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-sidebar {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .info-card {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: flex-start;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .info-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: rgba(2, 132, 199, 0.1);
+            color: var(--accent-solid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .info-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .info-text h3 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .info-text p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 640px) {
+            .about-sidebar {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Lectures Section */
+        .lectures-section {
+            padding: 120px 0;
+            background: var(--bg-surface);
+            position: relative;
+        }
+
+        .lectures-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .lecture-card {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.6);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lecture-card:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-5px);
+            border-color: rgba(2, 132, 199, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .lecture-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent-solid);
+            transition: height 0.4s ease;
+        }
+
+        .lecture-card:hover::before {
+            height: 100%;
+        }
+
+        .lecture-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .lecture-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .lecture-card ul {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .lecture-card ul li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .lecture-card ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-solid);
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            padding: 120px 0;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .review-card {
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .reviewer-info h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+        }
+
+        .reviewer-meta {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+        }
+
+        .review-score {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(2, 132, 199, 0.1);
+            color: var(--accent-solid);
+            border-radius: 50%;
+            font-weight: 700;
+            font-family: var(--font-heading);
+        }
+
+        .review-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background: var(--bg-surface);
+            overflow: hidden;
+        }
+
+        .gallery-marquee {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+            padding: 40px 0;
+        }
+
+        .gallery-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .gallery-item {
+            flex: 0 0 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 12px)); }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-item {
+                flex: 0 0 300px;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 0;
+            text-align: center;
+            background: #111827;
+        }
+
+        .cta-box {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 500px;
+            background: #111827;
+            color: #FFFFFF;
+        }
+
+        .cta-content {
+            padding: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 900px;
+            margin-left: auto;
+        }
+
+        .cta-face-wrap {
+            height: 100%;
+            width: 100%;
+        }
+        .cta-face-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @media (max-width: 768px) {
+            .cta-box {
+                grid-template-columns: 1fr;
+            }
+            .cta-face-wrap {
+                height: 400px;
+            }
+        }
+
+        .cta-box h2 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: 24px;
+            color: #FFFFFF;
+        }
+
+        .cta-box p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            color: var(--text-tertiary);
+            background: var(--bg-base);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                flex-direction: column;
+                text-align: center;
+                gap: 60px;
+            }
+            .hero-left h1 {
+                font-size: 3.5rem;
+            }
+            .hero-actions {
+                justify-content: center !important;
+            }
+            .hero-subtitle {
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .hero-image-inner {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lectures-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                /* simple mobile nav */
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .price-badge {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cta-box {
+                padding: 40px 20px;
+            }
+
+            .cta-box h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo"><img src="logo.png" alt="Ranvir Rai Logo"></a>
+            <ul class="nav-links">
+                <li><a href="#om">Om Ranvir</a></li>
+                <li><a href="#foredrag">Foredrag</a></li>
+                <li><a href="#omtaler">Omtaler</a></li>
+            </ul>
+            <a href="mailto:Ranvir.Rai@gmail.com" class="btn btn-primary nav-cta">Forespørsel</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-grid">
+                    <div class="hero-left animate-up">
+                        <h1>Innovasjon.<br/>Forretningsdesign.<br/>AI-strategi.</h1>
+                    </div>
+                    <div class="hero-right animate-up delay-1">
+                        <p class="hero-subtitle">Ranvir Rai, PhD – inspirerende og engasjerende foredragsholder<br/>som gjør det komplekse enkelt.</p>
+                        <p class="hero-subtitle" style="margin-top: 16px; opacity: 0.9; font-weight: 400; font-size: 1.1rem;">Foredrag og workshops som gir klarhet<br/>og retning i krevende endringer.</p>
+                        <div class="hero-actions delay-2" style="justify-content: flex-start;">
+                            <a href="mailto:Ranvir.Rai@gmail.com" class="btn btn-primary">
+                                Send forespørsel <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Keywords Marquee -->
+        <div class="keywords-wrapper">
+            <div class="keywords-track">
+                <!-- Duplicate keywords for seamless scroll -->
+                <span class="keyword">Design</span>
+                <span class="keyword">Digital transformasjon</span>
+                <span class="keyword">Digitalisering</span>
+                <span class="keyword">Disrupsjon</span>
+                <span class="keyword">Entreprenørskap</span>
+                <span class="keyword">Innovasjon og nyskapning</span>
+                <span class="keyword">Kunstig intelligens</span>
+                <span class="keyword">Ledelse</span>
+                <span class="keyword">Strategi</span>
+
+                <span class="keyword">Design</span>
+                <span class="keyword">Digital transformasjon</span>
+                <span class="keyword">Digitalisering</span>
+                <span class="keyword">Disrupsjon</span>
+                <span class="keyword">Entreprenørskap</span>
+                <span class="keyword">Innovasjon og nyskapning</span>
+                <span class="keyword">Kunstig intelligens</span>
+                <span class="keyword">Ledelse</span>
+                <span class="keyword">Strategi</span>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="om" class="about-section container section-fade">
+            <div class="section-header">
+                <h2>Om Ranvir Rai</h2>
+                <p>Kombinerer erfaring fra krevende prosjekter, relevant teori og konkrete perspektiver.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-left-column">
+                    <div class="about-image delay-1 animate-up">
+                        <img src="portrait.jpg" alt="Ranvir Rai Portrett" />
+                    </div>
+                    <div class="about-sidebar animate-up delay-2">
+                        <div class="glass info-card">
+                            <div class="info-icon">
+                                <i data-lucide="globe"></i>
+                            </div>
+                            <div class="info-text">
+                                <h3>Språk</h3>
+                                <p>Holder foredrag på Norsk og Engelsk.</p>
+                            </div>
+                        </div>
+                        <div class="glass info-card">
+                            <div class="info-icon">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <div class="info-text">
+                                <h3>Hjemsted</h3>
+                                <p>Basert i Oslo. Tilgjengelig for oppdrag over hele landet.</p>
+                            </div>
+                        </div>
+                        <div class="glass info-card">
+                            <div class="info-icon">
+                                <i data-lucide="award"></i>
+                            </div>
+                            <div class="info-text">
+                                <h3>Fagekspert</h3>
+                                <p>Gir faglig tyngde, innsikt og konkrete perspektiver innen sitt felt.</p>
+                            </div>
+                        </div>
+                        <div class="glass info-card">
+                            <div class="info-icon">
+                                <i data-lucide="users"></i>
+                            </div>
+                            <div class="info-text">
+                                <h3>Workshops</h3>
+                                <p>Tilbyr også dypdykk for ledergrupper. Fra strategi til AI i praksis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text-container">
+                    <div class="glass about-content">
+                    <p>Ranvir Rai holder engasjerende foredrag om innovasjon, design thinking og strategisk bruk av AI.
+                        Med humor, energi og tydelige eksempler gjør han komplekse temaer forståelige og relevante for
+                        ledere og fagmiljøer.</p>
+
+                    <p>Han er Design Director i These Ways og har over 20 års erfaring som leder, innovasjonsrådgiver og
+                        prosjektleder. I tillegg har han en doktorgrad i innovasjon fra Handelshøyskolen BI.</p>
+
+                    <p>Ranvir har erfaring fra både offentlig og privat sektor, blant annet som prosjektleder for
+                        utviklingen av målbilde for Norges nye nødnett, samt som rådgiver for virksomheter som
+                        Helsedirektoratet, Equinor og Gjensidige. Han har bidratt til utviklingen av nye tjenester,
+                        strategiske retninger og fremtidsscenarier i organisasjoner som står i krevende omstilling.</p>
+
+                    <p>Publikum sitter igjen med klarere begreper, mer presise spørsmål og en mer realistisk forståelse
+                        av hva innovasjon innebærer i praksis. Ranvir er medforfatter av bøker som <em>Introduksjon til
+                            tjenestedesign</em> og <em>Lederoppskrifter</em> og underviser i innovasjon ved bl.a.
+                        Høyskolen Kristiania og Universitetet i Stavanger.</p>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lectures Section -->
+        <section id="foredrag" class="lectures-section section-fade">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Foredrag med Ranvir Rai</h2>
+                    <p>Foredragene tilpasses alltid din bransje og gir publikum en realistisk og praktisk verktøykasse.
+                    </p>
+                </div>
+
+                <div class="lectures-grid">
+                    <!-- Foredrag 1 -->
+                    <div class="glass lecture-card">
+                        <h3>Hvordan innovere i turbulente tider?</h3>
+                        <p>Teknologi, forretningsmodeller og kundebehov endrer seg raskere enn noen gang – og mange
+                            ledere må levere resultater i økende usikkerhet. Dette populære foredraget viser hvordan man
+                            kan skape struktur, retning og tryggere prioriteringer når alt rundt endrer seg.</p>
+                        <p>Gjennom eksempler fra ulike sektorer viser Ranvir hvordan ledere kan navigere press og risiko
+                            ved å kombinere tydeligere prioriteringer, smartere beslutninger og en bærekraftig
+                            innovasjonsrytme.</p>
+                    </div>
+
+                    <!-- Foredrag 2 -->
+                    <div class="glass lecture-card">
+                        <h3>Design thinking som strategisk konkurransefortrinn</h3>
+                        <p>Når det brukes riktig, er design thinking ikke bare kreativt, men et strategisk rammeverk som
+                            hjelper organisasjoner å ta bedre beslutninger og jobbe tverrfaglig for å skape målbar
+                            verdi.</p>
+                        <p>Ranvir forklarer hvorfor virksomheter som lykkes leverer høyere kvalitet og hva som skiller
+                            dem fra de som bare «tester litt». Et foredrag som gir ledere en strategisk forståelse for
+                            hvordan de selv kan bruke det for økt utviklingskraft.</p>
+                    </div>
+
+                    <!-- Foredrag 3 -->
+                    <div class="glass lecture-card">
+                        <h3>Disruptiv innovasjon - WTF?!?</h3>
+                        <p>Disruptiv innovasjon forveksles ofte med «store gjennombrudd», men handler i praksis om
+                            strukturelle skift som gradvis endrer spillereglene i en bransje. I dette foredraget gjøres
+                            fenomenet konkret og forståelig – uten akademisk sjargong.</p>
+                        <ul>
+                            <li>Oppdag tidlige signaler på bransjeendringer</li>
+                            <li>Vurder trusselbildet for egen forretningsmodell</li>
+                            <li>Se mulighetsrommet før konkurrentene ser det</li>
+                        </ul>
+                    </div>
+
+                    <!-- Foredrag 4 -->
+                    <div class="glass lecture-card">
+                        <h3>AI + Innovasjon: fra hype til handling</h3>
+                        <p>Konkret, forståelig og relevant for virksomheter som ønsker retning og resultater. Få innsikt
+                            i hvordan AI kan støtte strategiske prioriteringer og gi bedre beslutningsgrunnlag.</p>
+                        <p>Viser hvordan AI kan knyttes til virksomhetsstrategien for å skape felles retning, og hvilke
+                            praktiske grep ledere kan ta for å innføre AI på en trygg og strukturert måte – fra
+                            pilotering til skalering.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section section-fade">
+            <div class="container">
+                <div class="section-badge animate-up">Glimt fra hverdagen</div>
+                <h2 class="section-title animate-up delay-1">Se Ranvir i aksjon 🤓</h2>
+            </div>
+            
+            <div class="gallery-marquee-container animate-up delay-2">
+                <div class="gallery-marquee">
+                    <!-- Original set -->
+                    <div class="gallery-item"><img src="gal-2.jpg" alt="Gallery image 2"></div>
+                    <div class="gallery-item"><img src="gal-3.jpg" alt="Gallery image 3"></div>
+                    <div class="gallery-item"><img src="gal-4.jpg" alt="Gallery image 4"></div>
+                    <div class="gallery-item"><img src="gal-5.jpg" alt="Gallery image 5"></div>
+                    <div class="gallery-item"><img src="gal-6.jpg" alt="Gallery image 6"></div>
+                    <div class="gallery-item"><img src="gal-7.jpg" alt="Gallery image 7"></div>
+                    <div class="gallery-item"><img src="gal-8.jpg" alt="Gallery image 8"></div>
+                    <div class="gallery-item"><img src="gal-9.jpg" alt="Gallery image 9"></div>
+                    <div class="gallery-item"><img src="gal-10.jpg" alt="Gallery image 10"></div>
+                    <div class="gallery-item"><img src="gal-11.jpg" alt="Gallery image 11"></div>
+                    <div class="gallery-item"><img src="gal-12.jpg" alt="Gallery image 12"></div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="gallery-item"><img src="gal-2.jpg" alt="Gallery image 2"></div>
+                    <div class="gallery-item"><img src="gal-3.jpg" alt="Gallery image 3"></div>
+                    <div class="gallery-item"><img src="gal-4.jpg" alt="Gallery image 4"></div>
+                    <div class="gallery-item"><img src="gal-5.jpg" alt="Gallery image 5"></div>
+                    <div class="gallery-item"><img src="gal-6.jpg" alt="Gallery image 6"></div>
+                    <div class="gallery-item"><img src="gal-7.jpg" alt="Gallery image 7"></div>
+                    <div class="gallery-item"><img src="gal-8.jpg" alt="Gallery image 8"></div>
+                    <div class="gallery-item"><img src="gal-9.jpg" alt="Gallery image 9"></div>
+                    <div class="gallery-item"><img src="gal-10.jpg" alt="Gallery image 10"></div>
+                    <div class="gallery-item"><img src="gal-11.jpg" alt="Gallery image 11"></div>
+                    <div class="gallery-item"><img src="gal-12.jpg" alt="Gallery image 12"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="omtaler" class="reviews-section container section-fade">
+            <div class="section-header">
+                <h2>Omtaler og vurderinger fra tidligere kunder</h2>
+                <div style="display:flex; justify-content:center; color:#F59E0B; margin-top:8px;">
+                    <i data-lucide="star" fill="currentColor"></i>
+                    <i data-lucide="star" fill="currentColor"></i>
+                    <i data-lucide="star" fill="currentColor"></i>
+                    <i data-lucide="star" fill="currentColor"></i>
+                    <i data-lucide="star" fill="currentColor"></i>
+                    <i data-lucide="star" fill="currentColor"></i>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Tomasz Frelek</h4>
+                            <div class="reviewer-meta">Oslo kommune · Nov 2025</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Engasjerende foredrag om hvordan man kan balansere drift og utvikling.
+                        Kombinerte solid teori med konkrete eksempler fra praksis. Profesjonell, tydelig og godt
+                        tilpasset våre behov. Høyeste score!</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Ole-Marthin Hexeberg</h4>
+                            <div class="reviewer-meta">Vika videregående skole · Nov 2025</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Foredraget var både engasjerende og relevant. Gjennom mange gode og praktiske
+                        eksempler klarte han å gjøre temaet konkret. Vi satt igjen med både motivasjon og verktøy.</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Tomas Oberg</h4>
+                            <div class="reviewer-meta">Norsk Retail Hub · Nov 2025</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Ranvir holdt et engasjerende og faglig godt foredrag for nærmere 500 lydhøre
+                        i salen. De responderte særdeles bra i etterkant. Vi anbefaler Ranvir på alle måter.</p>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Nancy Walderhaug</h4>
+                            <div class="reviewer-meta">Møre og Romsdal Fylkeskommune · Des 2023</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Tok oss gjennom et svært spennende og tankevekkende foredrag. Han inspirerte,
+                        fikk oss til å reflektere og kom med gode eksempler på teknologi som var relevant for oss!</p>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Toril Lysaker</h4>
+                            <div class="reviewer-meta">Nasjonalt ID-senter · Sep 2023</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Skreddersydd til vår virkelighet. Han evnet å trekke frem Innovasjon, AI, og
+                        DesignThinking uten å komplisere. Presenterer med letthet og glimt i øyet. Ypperlig levert!</p>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Michelle Stefansen</h4>
+                            <div class="reviewer-meta">Headit AS · Mai 2023</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Inspirerende og innsiktsfullt. Fra start til slutt engasjerte han med dyktig
+                        formidlingsevne, humor og et solid akademisk fundament. Foredraget passer for både nybegynnere
+                        og eksperter.</p>
+                </div>
+
+                <!-- Review 7 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>June H. Meum-Larsen</h4>
+                            <div class="reviewer-meta">Helse Nord IKT · Mar 2022</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Inspirerende foredrag rundt temaet tjenestedesign for Seksjon
+                        Prosjektledelse. Gode eksempler og praktisk oppgave engasjerte deltakerne. Håper vi får høre ham
+                        igjen.</p>
+                </div>
+
+                <!-- Review 8 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Øyvind Rage</h4>
+                            <div class="reviewer-meta">Høyskolen Kristiania · Nov 2021</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Sterk formidlingsevne, interessante perspektiver og eksempler som fanger
+                        oppmerksomheten. Jeg dro derifra med økt forståelse for temaet og en mersmak til å lære mer.</p>
+                </div>
+
+                <!-- Review 9 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Turid Kristoffersen</h4>
+                            <div class="reviewer-meta">Telemark fylkeskommune · Okt 2019</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Svært engasjerende presentasjon. Profesjonell, kompetent og didaktisk
+                        suveren. Gode illustrasjoner, med humoristiske betraktninger. Dette var inspirasjon pur.</p>
+                </div>
+
+                <!-- Review 10 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Erik Haagensen</h4>
+                            <div class="reviewer-meta">EY · Sep 2019</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Formidler komplekse problemstillinger gjennom praktiske eksempler, pakket inn
+                        i humor. Hvis du jakter en der forsamlingen glemmer tiden, og samtidig får råd til ettertanke,
+                        har du funnet rett mann!</p>
+                </div>
+
+                <!-- Review 11 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Carina Louise Dale</h4>
+                            <div class="reviewer-meta">Gründeruka Agder · Jan 2019</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Han tar scenen, engasjerer og inspirerer. Han var løsningsorientert, leverte
+                        fra A-Å og kan anbefales på det sterkeste. Faglig sterk, glimt i øyet, og gjør teori til praksis
+                        i særklasse.</p>
+                </div>
+
+                <!-- Review 12 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4>Tom Omnes Lia</h4>
+                            <div class="reviewer-meta">Econa · Sep 2018</div>
+                        </div>
+                        <div class="review-score">6</div>
+                    </div>
+                    <p class="review-text">Foredrag om design thinking for 150 frivillige. Stoffet var svært nyttig og
+                        gav mersmak for deltakere med bakgrunn fra økonomi til mastergrader innen feltet.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / Footer Area -->
+        <section id="kontakt" class="cta-section section-fade">
+            <div class="glass cta-box">
+                <div class="cta-content">
+                    <h2>Klar for å løfte neste arrangement?</h2>
+                    <p>Ta kontakt for å diskutere hvordan vi kan tilpasse innholdet for din organisasjon.</p>
+                    <div style="display:flex; justify-content:flex-start; gap:16px; flex-wrap:wrap;">
+                        <a href="mailto:Ranvir.Rai@gmail.com" class="btn btn-primary"
+                            style="padding: 16px 40px; font-size: 1.1rem; border: none; background: #FFFFFF; color: #111827;">
+                            <i data-lucide="mail"></i> Send forespørsel
+                        </a>
+                    </div>
+                    <p style="margin-top:20px; font-size: 0.9rem; color:rgba(255,255,255,0.5);">* Reise, ev. overnatting og mva kommer i tillegg.</p>
+                </div>
+                <div class="cta-face-wrap">
+                    <img src="kontakt-face.jpg" alt="Ranvir portrait">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ranvir Rai. Alle rettigheter reservert.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons and Scroll Logic -->
+    <script>
+        lucide.createIcons();
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-fade').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+
+</html>
