@@ -868,33 +868,48 @@
             }
 
             .hero {
+                min-height: auto;
                 padding: 100px 0 60px;
-                background-position: 75% 15%;
+                background-position: 68% center;
+                background-size: cover;
+            }
+
+            .hero-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 24px;
+                padding: 40px 24px 56px;
+            }
+
+            .hero-left,
+            .hero-right {
+                max-width: 100%;
+                width: 100%;
+                margin: 0;
+                flex: none;
             }
 
             .hero-left h1 {
                 font-size: 34px !important;
-                line-height: 1.25;
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-                hyphens: auto;
-            }
-
-            .hero-grid {
-                gap: 24px;
-            }
-
-            .hero-right {
-                gap: 20px;
+                line-height: 1.08;
+                word-break: break-word;
+                overflow-wrap: anywhere;
             }
 
             .hero-subtitle {
-                font-size: 1.1rem;
-                line-height: 1.6;
+                font-size: 18px !important;
+                line-height: 1.5;
+                margin: 0;
+                text-align: left;
             }
 
-            .hero-actions {
+            .hero-actions,
+            .hero-right a {
+                display: inline-flex;
                 margin-top: 8px;
+                justify-content: flex-start !important;
             }
 
             .stats-row {
