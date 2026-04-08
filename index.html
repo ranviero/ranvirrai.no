@@ -60,6 +60,9 @@
             /* Clean background */
         }
 
+        .mobile-only { display: none !important; }
+        .desktop-only { display: block !important; }
+
         /* Card and Box helpers */
         .glass {
             background: var(--bg-surface-elevated);
@@ -867,6 +870,9 @@
                 display: none;
             }
 
+            .mobile-only { display: block !important; }
+            .desktop-only { display: none !important; }
+
             .hero {
                 position: relative !important;
                 min-height: 100vh !important;
@@ -984,8 +990,13 @@
                         <h1>Innovasjon.<br/>Forretningsdesign.<br/>AI-strategi.</h1>
                     </div>
                     <div class="hero-right animate-up delay-1">
-                        <p class="hero-subtitle">Ranvir Rai, PhD – inspirerende og engasjerende foredragsholder<br/>som gjør det komplekse enkelt.</p>
-                        <p class="hero-subtitle" style="margin-top: 16px; opacity: 0.9; font-weight: 400; font-size: 1.1rem;">Foredrag og workshops som gir klarhet<br/>og retning i krevende endringer.</p>
+                        <!-- Desktop Text -->
+                        <p class="hero-subtitle desktop-only">Ranvir Rai, PhD – inspirerende og engasjerende foredragsholder<br/>som gjør det komplekse enkelt.</p>
+                        <p class="hero-subtitle desktop-only" style="margin-top: 16px; opacity: 0.9; font-weight: 400; font-size: 1.1rem;">Foredrag og workshops som gir klarhet<br/>og retning i krevende endringer.</p>
+
+                        <!-- Mobile Text -->
+                        <p class="hero-subtitle mobile-only">Ranvir Rai, PhD –<br/>inspirerende og engasjerende<br/>foredragsholder gjør det komplekse enkelt.</p>
+                        <p class="hero-subtitle mobile-only" style="margin-top: 16px; opacity: 0.9; font-weight: 400; font-size: 1.1rem;">Foredrag og workshops som gir klarhet<br/>og retning i krevende endringer.</p>
                         <div class="hero-actions delay-2" style="justify-content: flex-start;">
                             <a href="mailto:ranvir.rai@gmail.com" class="btn btn-primary">
                                 Send forespørsel <i data-lucide="arrow-right"></i>
