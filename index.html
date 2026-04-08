@@ -875,32 +875,23 @@
                 overflow: hidden !important;
             }
 
-            /* The Sharp Mirrored Image Layer */
+            /* The Sharp Mirrored Image Layer with Subtle Gradient Overlay */
             .hero::before {
-                content: "" !important;
-                position: absolute !important;
-                inset: 0 !important;
-                background-image: url('mobile-hero-bw.jpg') !important;
-                background-position: left center !important;
-                background-size: cover !important;
-                transform: scaleX(-1) !important;
-                filter: contrast(1.25) brightness(0.6) !important;
-                z-index: 1 !important;
-            }
-
-            /* The Subtle Text Reading Gradient */
-            .hero::after {
                 content: "" !important;
                 position: absolute !important;
                 inset: 0 !important;
                 background: linear-gradient(
                     to right,
-                    rgba(0, 0, 0, 0.8) 0%,
-                    rgba(0, 0, 0, 0.4) 60%,
-                    rgba(0, 0, 0, 0.1) 100%
-                ) !important;
-                z-index: 2 !important;
+                    rgba(0, 0, 0, 0.25),
+                    rgba(0, 0, 0, 0.08)
+                ), url('mobile-hero-bw.jpg') !important;
+                background-position: 60% center !important;
+                background-size: cover !important;
+                transform: scaleX(-1) !important;
+                filter: contrast(1.25) brightness(0.65) !important;
+                z-index: 1 !important;
             }
+
 
             .hero .hero-grid {
                 position: relative !important;
