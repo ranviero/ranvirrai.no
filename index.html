@@ -881,15 +881,15 @@
                 overflow: hidden !important;
             }
 
-            /* The Sharp Mirrored Image Layer with Subtle Gradient Overlay */
+            /* ===== FINJUSTERT OVERLAY ===== */
             .hero::before {
                 content: "" !important;
                 position: absolute !important;
                 inset: 0 !important;
                 background: linear-gradient(
                     to right,
-                    rgba(0, 0, 0, 0.18),
-                    rgba(0, 0, 0, 0.05)
+                    rgba(0, 0, 0, 0.16),
+                    rgba(0, 0, 0, 0.04)
                 ), url('mobile-hero-bw.jpg') !important;
                 background-position: 60% center !important;
                 background-size: cover !important;
@@ -919,6 +919,7 @@
                 flex: none !important;
             }
 
+            /* ===== CRISP HEADLINE ===== */
             .hero .hero-left h1 {
                 color: #ffffff !important;
                 font-size: 32px !important;
@@ -929,11 +930,17 @@
                 text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) !important;
             }
 
+            /* ===== MID LINE FIX ===== */
+            .hero .hero-left h1 span:nth-child(2) {
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) !important;
+            }
+
+            /* ===== BODY TEXT BOOST ===== */
             .hero .hero-subtitle,
             .hero .hero-right p {
                 font-size: 19px !important;
                 line-height: 1.5 !important;
-                color: #ffffff !important;
+                color: rgba(255, 255, 255, 0.92) !important;
                 margin: 0 !important;
                 text-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
             }
@@ -1000,7 +1007,7 @@
         <section class="hero">
             <div class="hero-grid">
                     <div class="hero-left animate-up">
-                        <h1>Innovasjon.<br/>Forretningsdesign.<br/>AI-strategi.</h1>
+                        <h1><span>Innovasjon.</span><br/><span>Forretningsdesign.</span><br/><span>AI-strategi.</span></h1>
                     </div>
                     <div class="hero-right animate-up delay-1">
                         <!-- Desktop Text -->
