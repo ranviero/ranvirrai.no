@@ -712,18 +712,32 @@
             padding: 80px 0;
             background: var(--bg-surface);
             overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-marquee-container {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+            scroll-behavior: auto;
+            cursor: grab;
+        }
+
+        .gallery-marquee-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+
+        .gallery-marquee-container:active {
+            cursor: grabbing;
         }
 
         .gallery-marquee {
             display: flex;
             gap: 24px;
             width: max-content;
-            animation: scroll 67s linear infinite;
             padding: 40px 0;
-        }
-
-        .gallery-marquee:hover {
-            animation-play-state: paused;
         }
 
         .gallery-item {
@@ -744,11 +758,6 @@
 
         .gallery-item:hover {
             transform: translateY(-8px);
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 12px)); }
         }
 
         @media (max-width: 768px) {
@@ -1500,6 +1509,84 @@
 
         document.querySelectorAll('.section-fade').forEach((element) => {
             observer.observe(element);
+        });
+    </script>
+    <script>
+        // Gallery Auto-Scroll & Drag Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.gallery-marquee-container');
+            const marquee = document.querySelector('.gallery-marquee');
+            
+            if (!container || !marquee) return;
+
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let autoScrollInterval;
+            let scrollSpeed = 1.2; // Pixels per frame
+
+            function startAutoScroll() {
+                autoScrollInterval = requestAnimationFrame(scrollLoop);
+            }
+
+            function stopAutoScroll() {
+                cancelAnimationFrame(autoScrollInterval);
+            }
+
+            function scrollLoop() {
+                container.scrollLeft += scrollSpeed;
+                
+                // Infinite loop checking
+                // Half the total width minus a tiny margin for gap
+                const halfWidth = marquee.scrollWidth / 2;
+                if (container.scrollLeft >= halfWidth) {
+                    container.scrollLeft -= halfWidth; 
+                }
+                
+                autoScrollInterval = requestAnimationFrame(scrollLoop);
+            }
+
+            // Start auto scroll
+            startAutoScroll();
+
+            // Pause on hover
+            container.addEventListener('mouseenter', stopAutoScroll);
+            container.addEventListener('mouseleave', () => {
+                isDown = false;
+                startAutoScroll();
+            });
+
+            // Drag to scroll logic
+            container.addEventListener('mousedown', (e) => {
+                isDown = true;
+                stopAutoScroll();
+                startX = e.pageX - container.offsetLeft;
+                scrollLeft = container.scrollLeft;
+            });
+
+            container.addEventListener('mouseup', () => {
+                isDown = false;
+                startAutoScroll(); // Resume scrolling when released
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const walk = (x - startX) * 2; // Fast scroll ratio
+                container.scrollLeft = scrollLeft - walk;
+            });
+            
+            // Support for infinite scroll during manual scrolling
+            container.addEventListener('scroll', () => {
+                if (!isDown) return; // Auto scroll handles its own looping
+                const halfWidth = marquee.scrollWidth / 2;
+                if (container.scrollLeft >= halfWidth) {
+                    container.scrollLeft -= halfWidth;
+                } else if (container.scrollLeft <= 0) {
+                    container.scrollLeft += halfWidth;
+                }
+            });
         });
     </script>
 </body>
