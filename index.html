@@ -949,9 +949,10 @@
                 flex-direction: column !important;
                 align-items: flex-start !important;
                 justify-content: flex-start !important;
-                gap: 120px !important; /* Ytterligere økt for å garantere at ansiktet er helt fritt */
+                gap: 80px !important; /* Passelig avstand, nå som alt er flyttet høyere opp */
                 padding: 0 24px !important;
                 height: 100% !important;
+                margin-top: -60px !important; /* Løfter hele innholdet tilbake mot toppen */
             }
 
             .hero-logos-bottom {
@@ -975,7 +976,7 @@
             /* ===== CRISP HEADLINE ===== */
             .hero .hero-left h1 {
                 color: #ffffff !important;
-                font-size: 32px !important;
+                font-size: 42px !important; /* Økt fra 32px */
                 font-weight: 700 !important;
                 line-height: 1.15 !important;
                 letter-spacing: -0.02em !important;
@@ -1082,8 +1083,8 @@
                         <!-- Mobile Logos and Button -->
                         <div class="mobile-only delay-2 animate-up" style="display: flex; flex-direction: column; gap: 20px; margin-top: 12px;">
                             <div style="display: flex; flex-direction: column; gap: 8px;">
-                                <p class="hero-subtitle" style="opacity: 0.9; font-weight: 400; font-size: 1.1rem; margin: 0; align-self: flex-start;">Tidligere kunder</p>
-                                <img src="kunder-logoer-mobil.png" alt="Utvalgte kunder og samarbeidspartnere" style="height: 76px; width: auto; object-fit: contain; opacity: 0.9; filter: grayscale(100%) contrast(150%); align-self: flex-start; margin-left: -4px;" />
+                                <p class="hero-subtitle" style="opacity: 0.9; font-weight: 400; font-size: 1.1rem; margin: 0; align-self: flex-start;">Tidligere kunder:</p>
+                                <img src="kunder-logoer-mobil.png" alt="Utvalgte kunder og samarbeidspartnere" style="max-width: 220px; height: auto; object-fit: contain; opacity: 0.9; filter: grayscale(100%) contrast(150%); align-self: flex-start; margin-left: -4px;" />
                             </div>
                             
                             <div class="hero-actions" style="justify-content: flex-start;">
