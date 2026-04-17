@@ -413,6 +413,31 @@
             border-radius: 50%;
         }
 
+        /* Hero Logos (Bottom Left) */
+        .hero-logos-bottom {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .hero-logos-inner {
+            width: min(1400px, 100%);
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .hero-logos-inner img {
+            height: 55px; /* Justerer høyden så logoene ser passe store ut */
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            opacity: 0.95;
+        }
+
         /* Keywords Marquee */
         .keywords-wrapper {
             padding: 40px 0;
@@ -1041,6 +1066,12 @@
                         </div>
                     </div>
                 </div>
+
+            <div class="hero-logos-bottom desktop-only animate-up delay-3">
+                <div class="hero-logos-inner">
+                    <img src="kunder-logoer.png" alt="Utvalgte kunder og samarbeidspartnere" />
+                </div>
+            </div>
         </section>
 
         <!-- Keywords Marquee -->
