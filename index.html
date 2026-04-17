@@ -949,7 +949,7 @@
                 flex-direction: column !important;
                 align-items: flex-start !important;
                 justify-content: center !important;
-                gap: 28px !important;
+                gap: 48px !important; /* Økt fra 28px for mer luft under h1 */
                 padding: 0 24px !important;
                 height: 100% !important;
                 margin-top: -80px !important;
@@ -960,7 +960,9 @@
             }
 
             .hero-logos-inner img {
-                height: 85px !important;
+                height: 95px !important; /* 10% større */
+                opacity: 0.9 !important; /* Bedre synlighet */
+                filter: grayscale(100%) contrast(150%) !important;
             }
 
             .hero .hero-left,
