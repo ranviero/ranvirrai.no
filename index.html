@@ -948,11 +948,10 @@
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: flex-start !important;
-                justify-content: center !important;
-                gap: 85px !important; /* Økt betydelig fra 48px for å unngå tekst over ansiktet/øyet på bakgrunnsbildet */
+                justify-content: flex-start !important;
+                gap: 85px !important; /* Beholder 85px gap slik at teksten ikke dekker ansiktet */
                 padding: 0 24px !important;
                 height: 100% !important;
-                margin-top: -80px !important;
             }
 
             .hero-logos-bottom {
@@ -1072,10 +1071,12 @@
                         <p class="hero-subtitle mobile-only"><strong>Ranvir Rai, PhD</strong> //<br/>inspirerende og engasjerende<br/>foredragsholder og fasilitator.</p>
                         <p class="hero-subtitle mobile-only" style="margin-top: 16px; opacity: 0.9; font-weight: 400; font-size: 1.1rem;">Foredrag og workshops som gir<br/>klarhet og retning i krevende endringer.</p>
                         <!-- Desktop Button -->
-                        <div class="hero-actions delay-2 desktop-only" style="justify-content: flex-start;">
-                            <a href="mailto:ranvir.rai@gmail.com" class="btn btn-primary">
-                                Send forespørsel <i data-lucide="arrow-right"></i>
-                            </a>
+                        <div class="desktop-only">
+                            <div class="hero-actions delay-2" style="justify-content: flex-start;">
+                                <a href="mailto:ranvir.rai@gmail.com" class="btn btn-primary">
+                                    Send forespørsel <i data-lucide="arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
 
                         <!-- Mobile Logos and Button -->
