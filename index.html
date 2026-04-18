@@ -865,13 +865,13 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .lectures-grid {
-        grid-template-columns: 1fr;
-    }
+  .lectures-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
         @media (max-width: 767px) {
@@ -1016,72 +1016,91 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .hero {
-    min-height: auto !important;
-    padding: 140px 0 80px !important;
+    min-height: 100vh !important;
+    padding: 140px 0 100px !important;
+    display: flex !important;
+    align-items: center !important;
     background-position: center 15% !important;
     background-attachment: scroll !important;
   }
 
   .hero-grid {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
     align-items: flex-start !important;
-    justify-content: flex-start !important;
-    gap: 36px !important;
-    width: min(900px, 100%) !important;
+    width: min(1400px, 100%) !important;
     margin: 0 auto !important;
-    padding: 0 40px !important;
+    padding: 0 32px !important;
+    gap: 64px !important;
     text-align: left !important;
   }
 
-  .hero-left,
-  .hero-right {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: none !important;
-    margin: 0 !important;
-  }
-
   .hero-left {
+    flex: 0 0 52% !important;
+    max-width: 52% !important;
+    width: 52% !important;
     margin-top: 0 !important;
   }
 
   .hero-right {
+    flex: 0 0 40% !important;
+    max-width: 40% !important;
+    width: 40% !important;
+    margin-left: auto !important;
+    margin-top: 0 !important;
     gap: 20px !important;
   }
 
   .hero-left h1 {
-    font-size: 64px !important;
+    font-size: 56px !important;
     line-height: 1.08 !important;
     letter-spacing: -0.02em !important;
+    margin: 0 !important;
   }
 
   .hero-subtitle,
   .hero-right p {
-    font-size: 22px !important;
-    line-height: 1.55 !important;
+    font-size: 20px !important;
+    line-height: 1.5 !important;
     text-align: left !important;
+    margin: 0 !important;
   }
 
   .hero-actions {
+    display: flex !important;
     justify-content: flex-start !important;
-    margin-top: 12px !important;
+    margin-top: 20px !important;
   }
 
   .hero-logos-bottom {
-    position: static !important;
+    position: absolute !important;
+    bottom: 32px !important;
+    left: 0 !important;
     width: 100% !important;
-    margin-top: 32px !important;
+    margin-top: 0 !important;
   }
 
   .hero-logos-inner {
-    padding: 0 40px !important;
+    width: min(1400px, 100%) !important;
+    margin: 0 auto !important;
+    padding: 0 32px !important;
+    display: flex !important;
+    justify-content: flex-start !important;
   }
 
   .hero-logos-inner img {
-    height: 88px !important;
-    opacity: 0.7 !important;
+    height: 90px !important;
+    opacity: 0.65 !important;
     filter: grayscale(100%) contrast(120%) !important;
+  }
+
+  .mobile-only {
+    display: none !important;
+  }
+
+  .desktop-only {
+    display: block !important;
   }
 }
         
@@ -1129,8 +1148,8 @@
                         <!-- Mobile Logos and Button -->
                         <div class="mobile-only delay-2 animate-up" style="margin-top: 54px;">
                             <div style="margin-bottom: 24px;"> <!-- Redusert luften her -->
-                                <p class="hero-subtitle" style="opacity: 0.9; font-weight: 400; font-size: 1.1rem; margin: 0 0 12px 0;">Tidligere kunder:</p>
-                                <img src="kunder-logoer-mobil.png" alt="Utvalgte kunder og samarbeidspartnere" style="max-width: 290px; height: auto; object-fit: contain; opacity: 1; filter: grayscale(100%) contrast(200%) brightness(1.2); margin-left: -4px; display: block;" />
+                                <p class="hero-subtitle" style="opacity: 0.9; font-weight: 400; font-size: 1.1rem; margin: 0 0 24px 0;">Tidligere kunder:</p>
+                                <img src="kunder-logoer-mobil.png" alt="Utvalgte kunder og samarbeidspartnere" style="max-width: 246px; height: auto; object-fit: contain; opacity: 1; filter: grayscale(100%) contrast(200%) brightness(1.2); margin-left: -4px; display: block;" />
                             </div>
                             
                             <div class="hero-actions" style="justify-content: flex-start; margin-top: 24px;">
@@ -1698,4 +1717,3 @@
 </body>
 
 </html>
-
